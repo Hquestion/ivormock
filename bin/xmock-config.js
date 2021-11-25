@@ -1,8 +1,7 @@
 const program = require('commander');
-const handler = require('./commands/create.js');
+const handler = require('./commands/config.js');
 
 program
-    .arguments('<name>')
     .option('-b, --base <base>', '项目本地绝对路径')
     .option('-mp, --mock-path <mockPath>', 'mock文件目录绝对路径', 'mock')
     .option('-p --port <port>', '项目mock服务端口号')

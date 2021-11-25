@@ -1,0 +1,28 @@
+{
+  "name": "xmock",
+  "version": "1.0.0",
+  "description": "-",
+  "main": "index.js",
+  "bin": "./bin/xmock.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.5.2",
+    "commander": "^8.2.0",
+    "killports": "^1.0.3",
+    "koa": "^2.13.3",
+    "minimist": "^1.2.5",
+    "mockjs": "^1.1.0",
+    "portfinder": "^1.0.28",
+    "shortid": "^2.2.16",
+    "stormdb": "^0.5.2",
+    "typescript": "^4.4.3"
+  }
+}
