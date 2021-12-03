@@ -3,7 +3,7 @@ const parse = require("./parser");
 
 var router = new Router();
 
-router.prefix('/xmock');
+router.prefix('/ivor');
 
 router.get('/', (ctx, next) => {
     ctx.body = 'Hello there, Mock Server is running well!';

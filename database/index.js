@@ -1,9 +1,9 @@
 const path = require('path');
 const StormDB = require('stormdb');
-// start db with "./db.stormdb" storage location
+// start db with "./ivormock.stormdb" storage location
 
-const home = process.platform === 'win32' ? process.env.USERPROFILE : process.env.HOMEPATH;
-const dbLocation = path.resolve(home, './db.stormdb');
+const home = process.platform === 'win32' ? process.env.USERPROFILE : (process.env.HOMEPATH || process.env.HOME);
+const dbLocation = path.resolve(home, './ivormock.stormdb');
 
 
 const engine = new StormDB.localFileEngine(dbLocation);

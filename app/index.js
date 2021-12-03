@@ -3,13 +3,12 @@ const Koa = require('koa');
 const chalk = require('chalk');
 const minimist = require('minimist');
 const portfinder = require('portfinder');
+const bodyparser = require("koa-bodyparser");
 
 const { db } = require('../database/index');
 
 const defaultPort = 4000;
 const args = minimist(process.argv.slice(2));
-
-args.proj = 'demo';
 
 const app = new Koa();
 
@@ -31,6 +30,7 @@ app.use(function(ctx, next) {
     next();
 })
 
+app.use(bodyparser());
 app.use(router.routes());
 
 let promise;
@@ -72,14 +72,30 @@ promise
                 db.get('projects').get(projectIndex).set('state', 1).set('usedPort', data);
                 db.save();
             }
+            if (process.send) {
+                process.send({
+                    type: "startServer",
+                    pid: process.pid,
+                    ppid: process.ppid,
+                    port: data
+                });
+            }
         });
     });
 
 process.on('SIGTERM', shutDown);
 process.on('SIGINT', shutDown);
+process.on("exit", shutDown);
 
 function shutDown() {
     console.log('server is shutting down');
+    if (process.send) {
+        process.send({
+            type: "killServer",
+            pid: process.pid,
+            ppid: process.ppid
+        });
+    }
     server.close();
 }
 

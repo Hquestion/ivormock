@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const {underline2slash, prefixSlash} = require("../utils");
+const {underline2slash, prefixSlash, resolveDynamicParams} = require("../utils");
 const {db} = require("../../database/index");
 const allowMethods = ['get', 'post', 'put', 'del'];
 
@@ -37,7 +37,14 @@ function walkFolder(dir, base = '') {
                     apiName = method;
                     method = 'get';
                 }
+                /**
+                 * 下划线替换为/
+                 */
                 apiName = underline2slash(apiName);
+                /**
+                 * 支持动态参数，解析"[id]"为":id"
+                 */
+                apiName = resolveDynamicParams(apiName);
                 result[fileName] = {
                     method,
                     apiName: prefixSlash(apiName),

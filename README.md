@@ -1,17 +1,132 @@
-# Mock服务
+# ivormock
 
-## 特性
-- 
+A tool to mock REST API, speed up your frontend development
+
+## Features
+
+- Decentralization
+- Auto update router
+- Switch response on demand
+- Lightweight
+- Version control
+- Work with multi projects
+- User friendly
+- Easy to integrate with `webpack` and `vite`
+
+## Install
+
+Globally, used as a single server:
+
+```shell
+
+# with npm:
+
+npm install -g ivormock
+
+# or with yarn:
+
+yarn global add ivormock
+```
+
+We also support use `ivormock` with `webpack` or `vite`, which is more efficient:
+
+```shell
+
+# for vite:
+npm install -g ivormock vite-plugin-ivormock
+
+# for webpack:
+npm install -g ivormock webpack-plugin-ivormock
+
+```
+
+[Getting start with plugins]()
 
 
-## milestone
+## Getting Start
 
-### step1 命令行启动服务，并load项目内的路由文件，可以成功访问
+### 1. Create a "ivormock" project
 
-- filename: {get/post/put/del/}__api_v1_auth
+```shell
+ivermock create <projectName> -b <projectRoot> -mp <mockFileFolderPath> -p <port> -d [description]
+```
+#### Params
+- **`projectName`**: Your project name, should be unique globally
+- `projectRoot`: Your project root path, such as `D:\\code\\projects\\someProject`
+- `mockFileFolderPath`: Where your mock files' folder located, relative to `projectRoot`, default is `mock`
+- `port`: Which port should your project's `ivormock` server started at, default is `6000`
+- `description`: Optional, you can specify a description for your project
 
-### step2 项目管理，启动/停止/重启服务
+### 2. Start your "ivormock" server
 
-### step3 监听项目路径变化，自动重载路由
+After create your project successfully, simply start a `ivormock` server via your project name.
 
-### 反向代理等
+```shell
+ivormock start <projectName>
+```
+If configured correctly, you would see a log on your screen, which indicates your `ivormock` server is started.
+
+### 3. Write your mock file
+
+Create a new `.js` file in your mock files folder and name it to `get__api_v1_users.js`, and paste the code below into your mock file:
+
+```js
+
+module.exports = function(ctx) {
+  return {
+    message: "Hello, ivormock"
+  }
+}
+```
+Ok, save it!
+
+With the file, we have creat a rest api which url is `GET /api/v1/users`, and will return a JSON:
+
+```json
+{
+  "message": "Hello, ivormock"
+}
+```
+
+### 4. Check your server
+
+Let's access our first `ivormock` api with `curl`:
+
+```shell
+curl http://localhost:6000/api/v1/users
+```
+
+Ok, you should have seen `Hello, ivormock` on your screen.
+
+## Plugin support
+
+With plugin, `ivormock` is easy to integrate with our current workflow.
+
+### Work with `vite`
+
+In your `vite.config.js`：
+
+```js
+const ivormock = require("vite-plugin-ivormock");
+
+export default {
+    // ... 
+    plugins: [
+        //...
+        ivormock({
+            mockPath: "mock",   // mock file path, relative to project root
+            port: 3456          // ivormock server port
+        })
+    ]
+}
+```
+
+
+### Work with `webpack`
+
+TBD
+
+## TODO
+
+- <input type="checkbox" readonly /> Customization: path separator, api prefix...
+- <input type="checkbox" readonly /> UI

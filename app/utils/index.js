@@ -7,7 +7,15 @@ function prefixSlash(str) {
     return '/' + str;
 }
 
+function resolveDynamicParams(apiName) {
+    const reg = /\[([^\]]+)\]/g;
+    return apiName.replace(reg, function(match, val) {
+        return `:${val}`;
+    });
+}
+
 module.exports = {
     underline2slash,
-    prefixSlash
+    prefixSlash,
+    resolveDynamicParams
 }

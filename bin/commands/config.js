@@ -9,9 +9,10 @@ module.exports = function(command) {
             delete options[key];
         }
     }
+    console.log(options)
     const proj = command.args[0];
     if (!proj) {
-        // 不传proj,则是配置xmock-cli的端口，暂时不处理
+        // 不传proj,则是配置ivormock-cli的端口，暂时不处理
         console.log(chalk.red('项目名称必填！'));
         return;
     }

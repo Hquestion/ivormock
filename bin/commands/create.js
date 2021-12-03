@@ -28,7 +28,7 @@ module.exports = function(command) {
 
     if (!project.base || !project.mockPath) {
         console.log(chalk.yellow(`项目信息不完善，请及时补充，否则项目不可用!
-可使用 'xmock config <name> --base xxx'配置项目信息
+可使用 'ivormock config <name> --base xxx'配置项目信息
         `))
     } else {
         console.log(chalk.green('项目创建成功！'));
