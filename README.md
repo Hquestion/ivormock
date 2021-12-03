@@ -130,3 +130,4 @@ TBD
 
 - <input type="checkbox" readonly /> Customization: path separator, api prefix...
 - <input type="checkbox" readonly /> UI
+- <input type="checkbox" readonly /> 日志
