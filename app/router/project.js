@@ -14,13 +14,14 @@ router.prefix('/');
  */
 function dealProjectRouter(proj) {
     const projRouters = parse(proj);
-    console.log(projRouters);
+    // console.log(projRouters);
 
     Object.entries(projRouters).forEach(([k, v]) => {
         router[v.method](v.apiName, (ctx, next) => {
             delete require.cache[require.resolve(v.source)];
             const callback = require(v.source);
             const result = callback(ctx);
+            ctx.set("X-Response-By", "Ivormock");
 
             // 支持切换响应
             if (result.$$type === "SWITCH") {
