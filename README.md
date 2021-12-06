@@ -124,7 +124,26 @@ export default {
 
 ### Work with `webpack`
 
-TBD
+In your `webpack.config.js`：
+
+```js
+const IvormockWebpackPlugin = require("webpack-plugin-ivormock");
+
+const isDev = process.env.NODE_ENV === "development";
+
+module.exports = {
+    // ... 
+    plugins: [
+        //...
+        // Only used in development envorioment
+        isDev && new IvormockWebpackPlugin({
+            mockPath: "mock",   // mock file path, relative to project root
+            port: 3456,          // ivormock server port
+            prefix: "/mock"     // request with "/mock" prefix will pass to ivormock 
+        })
+    ]
+}
+```
 
 ## TODO
 
