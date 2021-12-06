@@ -128,6 +128,7 @@ TBD
 
 ## TODO
 
-- <input type="checkbox" readonly /> Customization: path separator, api prefix...
-- <input type="checkbox" readonly /> UI
-- <input type="checkbox" readonly /> 日志
+- <input type="checkbox" readonly disabled /> Customization: path separator, api prefix...
+- <input type="checkbox" readonly disabled /> UI
+- <input type="checkbox" readonly disabled /> Log
+- <input type="checkbox" readonly disabled /> Generate API document
