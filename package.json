@@ -1,6 +1,6 @@
 {
   "name": "ivormock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool to mock REST API, speed up your frontend development",
   "main": "index.js",
   "bin": "./bin/ivormock.js",
@@ -10,9 +10,10 @@
   },
   "keywords": [
     "mock",
-    "frontend"
+    "frontend",
+    "ivormock"
   ],
-  "author": "",
+  "author": "hquestion<hquestion90@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^10.1.1",
@@ -27,5 +28,9 @@
     "portfinder": "^1.0.28",
     "shortid": "^2.2.16",
     "stormdb": "^0.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hquestion/ivormock.git"
   }
 }
