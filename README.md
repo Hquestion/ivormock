@@ -174,7 +174,7 @@ module.exports = function() {
 }
 ```
 
-#### I want custom my http code
+#### I want to customize my http code
 
 `Ivormock` will return a `200` http code default. If you want to get a failed response, you could specify your http code with `$$status` and `$$body`:
 
