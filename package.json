@@ -1,6 +1,6 @@
 {
   "name": "ivormock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A tool to mock REST API, speed up your frontend development",
   "main": "index.js",
   "bin": "./bin/ivormock.js",
