@@ -50,7 +50,7 @@ npm install -g ivormock webpack-plugin-ivormock
 ### 1. Create a "ivormock" project
 
 ```shell
-ivermock create <projectName> -b <projectRoot> -mp <mockFileFolderPath> -p <port> -d [description]
+ivormock create <projectName> -b <projectRoot> -mp <mockFileFolderPath> -p <port> -d [description]
 ```
 #### Params
 - **`projectName`**: Your project name, should be unique globally
